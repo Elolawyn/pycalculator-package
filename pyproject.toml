@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elolawyn-calculadora-ejemplo"
+version = "1.0.0"
+description = "Una calculadora simple con funciones, clases y constantes, para probar los paquetes de python."
+authors = [
+  { name="Raúl Arroyo" }
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["calculadora", "ejemplo"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Elolawyn/pycalculator-package"
+
+[tool.setuptools]
+packages = ["elolawyn_calculator"]
+package-dir = {"" = "src"}
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.coverage.run]
+branch = true
+source = ["src/elolawyn_calculator"]
+omit = [
+    "*/__init__.py",
+    "*/settings.py"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib --cov=src/elolawyn_calculator --cov-report=term --cov-report=xml --cov-report=html --durations=10"
+python_files = ["*_test.py"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "E4", "E7", "E9"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+exclude = [
+    ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg", ".ipynb_checkpoints",
+    ".mypy_cache", ".nox", ".pants.d", ".pyenv", ".pytest_cache", ".pytype",
+    ".ruff_cache", ".svn", ".tox", ".venv", ".vscode", "__pypackages__", "_build",
+    "buck-out", "build", "dist", "node_modules", "site-packages", "venv"
+]
+

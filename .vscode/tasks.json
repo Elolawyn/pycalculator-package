@@ -1,0 +1,113 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🔁 Nuevo entorno",
+                "type": "shell",
+                "command": "python -m venv .venv && source .venv/bin/activate",
+                "problemMatcher": [],
+                "detail": "Crea entorno virtual local",
+                "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
+        },
+        {
+            "label": "📥 Actualizar",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/pip-compile --strip-extras --output-file=requirements/prod.txt requirements.in && ${workspaceFolder}/.venv/bin/pip-compile --strip-extras --output-file=requirements/dev.txt requirements-dev.in",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Actualiza los ficheros requirements desde los archivos .in",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
+        },
+        {
+            "label": "📦 Instalar",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/pip install -r requirements/dev.txt && ${workspaceFolder}/.venv/bin/pip install -e . && ${workspaceFolder}/.venv/bin/pip install --upgrade pip",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Instala todas las dependencias",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
+        },
+        {
+            "label": "🔍 Lint",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/ruff check src tests",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Analiza el código con Ruff",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": false
+            }
+        },
+        {
+            "label": "🧪 Tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/pytest",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Ejecuta los tests con pytest",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": false
+            }
+        },
+        {
+            "label": "📊 Cobertura",
+            "type": "shell",
+            "windows": {
+                "command": "cmd /c start ${workspaceFolder}\\htmlcov\\index.html"
+            },
+            "linux": {
+                "command": "xdg-open ${workspaceFolder}/htmlcov/index.html"
+            },
+            "osx": {
+                "command": "open ${workspaceFolder}/htmlcov/index.html"
+            },
+            "problemMatcher": [],
+            "detail": "Abre el informe de cobertura en el navegador",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
+        }
+    ]
+}

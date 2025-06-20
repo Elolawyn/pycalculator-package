@@ -1,0 +1,23 @@
+{
+    "files.exclude": {
+        "**/.pytest_cache": true,
+        "**/__pycache__": true,
+        "**/**.egg-info": true,
+        "**/htmlcov/**": true,
+        "**/.coverage": true,
+        "**/.ruff_cache": true,
+        "**/coverage.xml": true,
+        "**/.venv": true,
+    },
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "todo-tree.tree.scanMode": "workspace only",
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    }
+}
