@@ -1,0 +1,34 @@
+name: 🚀 Desplegar a TestPyPI
+
+on:
+  workflow_dispatch:  # Solo manualmente desde la UI de GitHub
+
+jobs:
+  deploy:
+    name: 🚀 Desplegar a TestPyPI
+    # Sólo desde main
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v3
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 📦 Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: 🏗️ Construir el paquete
+        run: python -m build
+
+      - name: 🚀 Desplegar a TestPyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
+        run: twine upload --repository testpypi dist/*

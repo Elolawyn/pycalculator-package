@@ -54,3 +54,6 @@ pip-wheel-metadata/
 
 # ruff
 .ruff_cache/
+
+# Subida de paquetes
+.pypirc

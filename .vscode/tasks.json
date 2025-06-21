@@ -108,6 +108,37 @@
                 "clear": false,
                 "close": true
             }
+        },
+        {
+            "label": "🛠 Construir",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/python -m build",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "Construye el paquete Python (wheel y sdist)",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
+        },
+        {
+            "label": "🚀 TestPyPI",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/bin/twine upload --repository testpypi dist/*",
+            "problemMatcher": [],
+            "detail": "Sube el paquete a TestPyPI",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "clear": false,
+                "close": true
+            }
         }
     ]
 }

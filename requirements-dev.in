@@ -1,7 +1,9 @@
 -r requirements.in
+build
 coverage
 pip-tools
 pytest
 pytest-cov
 pytest-randomly
 ruff
+twine

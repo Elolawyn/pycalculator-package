@@ -8,6 +8,7 @@
         "**/.ruff_cache": true,
         "**/coverage.xml": true,
         "**/.venv": true,
+        "**/dist/**": true
     },
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
