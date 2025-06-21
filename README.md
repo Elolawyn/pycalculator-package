@@ -51,7 +51,7 @@ Alternativamente, en consola.
 pytest
 ```
 
-## Comprobar coverage
+## Comprobar cobertura
 
 * Ejecutar tarea `📊 Cobertura`.
 
@@ -64,4 +64,39 @@ cmd /c start htmlcov\\index.html
 xdg-open htmlcov/index.html
 # MacOS
 open htmlcov/index.html
+```
+
+## Construir paquete
+
+* Ejecutar tarea `🛠 Construir`.
+
+Alternativamente, en consola.
+
+```bash
+source .venv/bin/activate
+python -m build
+```
+
+## Desplegar a TestPyPi
+
+* Debe existir fichero `.pypirc`:
+
+```
+[distutils]
+index-servers =
+    testpypi
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = __token__
+password = pypi-TOKEN
+```
+
+* Ejecutar tarea `🚀 TestPyPI`.
+
+Alternativamente, en consola.
+
+```bash
+source .venv/bin/activate
+twine upload --repository testpypi dist/*
 ```
