@@ -2,6 +2,15 @@
 
 Paquete de prueba de python que ofrece una calculadora.
 
+## Documentación
+
+* [Registro de Cambios](CHANGELOG.md).
+* [Código de Conducta](CODE_OF_CONDUCT.md).
+* [Guía de Contribución](CONTRIBUTING.md).
+* [Licencia](LICENSE).
+* [Política de Seguridad](SECURITY.md).
+* [Soporte](SUPPORT.md).
+
 ## Instalación
 
 * Ejecutar tarea `🔁 Nuevo entorno`.

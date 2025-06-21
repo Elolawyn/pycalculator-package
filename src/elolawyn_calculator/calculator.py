@@ -20,6 +20,10 @@ class Calculator:
         return a * b
 
     @staticmethod
+    def power(a: int | float, b: int | float) -> int | float:
+        return a**b
+
+    @staticmethod
     def divide(a: int | float, b: int | float) -> int | float:
         if b == 0:
             raise ValueError("No se puede dividir por cero.")

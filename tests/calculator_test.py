@@ -75,3 +75,36 @@ def test_divide_zero_numerator():
 def test_divide_by_zero():
     with pytest.raises(ValueError, match="No se puede dividir por cero"):
         Calculator.divide(10, 0)
+
+
+# Tests para .power
+def test_power_positive_exponent():
+    assert Calculator.power(2, 3) == 8
+
+
+def test_power_zero_exponent():
+    assert Calculator.power(5, 0) == 1
+
+
+def test_power_negative_exponent():
+    assert Calculator.power(2, -2) == 0.25
+
+
+def test_power_zero_base_positive_exponent():
+    assert Calculator.power(0, 3) == 0
+
+
+def test_power_zero_base_zero_exponent():
+    assert Calculator.power(0, 0) == 1  # Convención matemática en Python
+
+
+def test_power_negative_base_even_exponent():
+    assert Calculator.power(-2, 2) == 4
+
+
+def test_power_negative_base_odd_exponent():
+    assert Calculator.power(-2, 3) == -8
+
+
+def test_power_float_exponent():
+    assert round(Calculator.power(9, 0.5), 5) == 3.0  # raíz cuadrada
