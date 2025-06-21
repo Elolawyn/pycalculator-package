@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elolawyn-calculadora-ejemplo"
-version = "1.0.0"
+version = "1.0.1"
 description = "Una calculadora simple, para probar los paquetes de python."
 authors = [
   { name="Raúl Arroyo", email="raularroyolubian.dev@gmail.com" }

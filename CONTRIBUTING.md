@@ -1,4 +1,4 @@
-# Guía de contribución
+# Guía de Contribución
 
 ¡Gracias por tu interés en contribuir! Por favor sigue estos pasos:
 
